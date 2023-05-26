@@ -4,6 +4,12 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          
+         
+         validates :name, presence: true
+         validates :occupation, presence: true
+         validates :position, presence: true
+         
   has_one_attached :image
+  
   
 end

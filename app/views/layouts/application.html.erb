@@ -14,7 +14,7 @@
 
     <body>
      <header>
-      <nav class="navbar navbar-expand-lg navbar-right">
+　　　　<nav class="navbar navbar-expand-lg navbar-right" >
         <div class="container">
           <a class="navbar-brand" href="/"><%= image_tag('logo.png') %></a>
            <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -31,32 +31,29 @@
 
             <% if customer_signed_in? %>
             <li class="nav-item">
-              <a class="btn btn-default" href="/about">About</a>
+              <%= link_to "マイページ", customers_path, class: 'btn btn-default' %>
             </li>
             <li class="nav-item">
-              <a class="btn btn-default" href="/items">商品一覧</a>
+              <%= link_to "商品一覧", items_path, class: 'btn btn-default' %>
             </li>
             <li class="nav-item">
-              <a class="btn btn-default" href="/customer/sign_up">新規登録</a>
+              <%= link_to "カート", cart_items_path, class: 'btn btn-default' %>
             </li>
             <li class="nav-item">
-              <a class="btn btn-default" href="/customer/sign_in">ログイン</a>
-            </li>
+              <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'btn btn-default' %>
             </li>
             <% else %>
-            <li class="nav-item">
-              <a class="btn btn-default" href="/customers/mypage">マイページ</a>
+             <li class="nav-item">
+              <%= link_to "About", about_path, class: 'btn btn-default' %>
             </li>
             <li class="nav-item">
-              <a class="btn btn-default" href="/items">商品一覧</a>
-            </li>
-            </li>
-            <li class="nav-item">
-              <a class="btn btn-default" href="/cart_items">カート</a>
-            </li>
+              <%= link_to "商品一覧", items_path, class: 'btn btn-default' %>
             </li>
             <li class="nav-item">
-              <a class="btn btn-default" href="/customers/sign_out">ログアウト</a>
+              <%= link_to "新規登録", new_customer_registration_path, class: 'btn btn-default' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "ログイン", new_customer_session_path, class: 'btn btn-default' %>
             </li>
             </li>
             <% end %>
