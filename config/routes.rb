@@ -20,9 +20,11 @@ Rails.application.routes.draw do
     get '/about' => 'homes#about'
     get 'customers/sign_up' => 'registrations#new'
     post 'customers' => 'registrations#create'
+    get 'customers/mypage' => 'customers#show'
+    get 'customers/edit' => 'customers#edit'
     
     resources :cart_items
-    resources :customers
+    #resources :customers, only: [:show, :edit]
     resources :orders
   end
   

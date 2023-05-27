@@ -5,22 +5,35 @@
 
 <a class="btn btn-success" href="/customers/edit" role="button">編集する</a>
 
-    
 <table class="table table-bordered">
+ <thead>
   <tr>
-   <td class="table-info">氏名</td><td> </td></tr>
+   <td class="table-info">氏名</td>
+   <td><%= @customer.first_name %></td>
+  </tr>
   <tr>
-   <td class="table-info">カナ</td><td> </td></tr>
+   <td class="table-info">カナ</td>
+   <td><%= @customer.first_name_kana %></td>
+  </tr>
   <tr>
-   <td class="table-info">郵便番号</td><td> </td></tr>
+   <td class="table-info">郵便番号</td>
+   <td><%= @customer.postal_code %></td>
+  </tr>
   <tr>
-   <td class="table-info">住所</td><td> </td></td></tr>
+   <td class="table-info">住所</td>
+   <td><%= @customer.address %></td>
+  </tr>
   <tr>
-   <td class="table-info">電話番号</td><td> </td></tr>
+   <td class="table-info">電話番号</td>
+   <td><%= @customer.telephone_number %></td>
+  </tr>
   <tr>
-   <td class="table-info">メールアドレス</td><td> </td></tr>
-  </tbody>
+   <td class="table-info">メールアドレス</td>
+   <td><%= @customer.email %></td>
+  </tr>
+  </thead>
 </table>
+ 
 
 </div>
 
