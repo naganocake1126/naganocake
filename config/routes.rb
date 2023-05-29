@@ -18,21 +18,28 @@ Rails.application.routes.draw do
     get 'items/:id' => 'items#show'
     get '/' => 'homes#top'
     get '/about' => 'homes#about'
-    get 'customers/sign_up' => 'registrations#new'
-    post 'customers' => 'registrations#create'
+    get '/customers/sign_up' => 'registrations#new'
+    post '/customers' => 'registrations#create'
     get 'customers/mypage' => 'customers#show'
-    get 'customers/edit' => 'customers#edit'
+    get '/customers/information/edit' => 'customers#edit', as: 'edit_customers'
+    patch '/customers/information/:id' => 'customers#update', as: 'update_customers'
+    
+    get '/customers/quit' => 'customers#quit'
+    patch '/customers/leave' => 'customers#leave'
     
     resources :cart_items
-    #resources :customers, only: [:show, :edit]
     resources :orders
   end
   
   namespace :admin do
     get '/admin' => 'homes#top'
+    # get '/admin/items' => 'items#new'
+    # post '/admin/items' => 'admin#create'
+    # get '/admin/items/:id' => 'admin#show'
+    # get '/admin/items/:id/edit' => 'admin#edit'
     
-    resources :items
-    resources :customers
+    resources :items, only:[:new, :show, :create, :index, :edit, :update]
+    resources :customers, only:[:show, :index, :edit, :update]
     get '/asmin/orders/:id' => 'orders#show'
   end
   

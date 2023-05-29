@@ -1,1 +1,15 @@
 <h1>商品詳細画面</h1>
+
+
+<p><%= image_tag @item.image, size: "400x300" %></p>
+
+<h6>商品名</h6>
+<p><%= @item.name %></p>
+
+<h6>商品説明</h6>
+<p><%= @item.introduction %></p>
+
+<h6>¥</h6>
+<p><%= @item.price %></p>(税込)
+
+ 
