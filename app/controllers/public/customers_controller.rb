@@ -2,6 +2,7 @@ class Public::CustomersController < ApplicationController
 
   def show
     @customer = current_customer
+    @item = Item.find(params[:id])
     @item = @customer.page(params[:page])
   end
 

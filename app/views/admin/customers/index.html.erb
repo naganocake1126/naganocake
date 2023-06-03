@@ -1,1 +1,25 @@
 <h5>会員一覧</h5>
+<table>
+  <thead>
+    <tr>
+      <th>会員ID</th>
+      <th>氏名</th>
+      <th>メールアドレス</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <% @customer.each do |customer| %>
+    <tr>
+      <td><%= customer.id %></td>
+      
+      <td><%= link_to customer.first_name, admin_customer_path(customer) %></td>
+      
+      <td><%= customer.address %></td>
+    </tr>
+    <% end %>
+  </tbody>
+  
+</table>
+
+<%= paginate @customer %>

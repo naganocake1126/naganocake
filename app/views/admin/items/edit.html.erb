@@ -1,6 +1,6 @@
 <h5>商品編集</h5>
 
-<%= form_with model: @admin_path do |f| %>
+<%= form_with model: @item, url:admin_item_path(@item.id), method: :patch do |f| %>
 
 <div class="form-group">
   <%= f.label "商品画像" %>
@@ -22,7 +22,7 @@
   <%= f.number_field :price%>円
 </div>
 
-<% end %>
 <div class="actions">
-  <%= link_to "変更を保存", admin_items_path, :class => "btn btn-success ms-3" %>
+  <%= f.submit "変更を保存" ,class: "btn btn-success ms-3" %>
 </div>
+<% end %>

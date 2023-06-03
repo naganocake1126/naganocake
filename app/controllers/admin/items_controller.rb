@@ -10,19 +10,30 @@ class Admin::ItemsController < ApplicationController
 
   def create
     @item = Item.new(items_params)
-    @item.save
-    redirect_to admin_items_path(@item.id)
+    @item.save!
+    redirect_to admin_item_path(@item.id)
   end
 
   def show
     @item = Item.find(params[:id])
-    
+  
+
   end
 
   def edit
+    @item = Item.find(params[:id])
+ 
   end
 
   def update
+    @item = Item.find(params[:id])
+
+    if @item.update(items_params)
+     flash[:notice] = "You have updated item successfully."
+     redirect_to admin_item_path(@item.id)
+    else
+      render "edit"
+    end
   end
 
 

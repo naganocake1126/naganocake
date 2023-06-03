@@ -1,13 +1,32 @@
+
   <div class="jumbotron">
       <div class="container">
       <h2>ようこそ、ながのCAKEへ！</h2>
        このサイトは、ケーキ販売のECサイトになります。<br>
        会員でない方も商品の閲覧はできますが、<br>
        購入には会員登録が必要になります。</h2>
-    　</div>
+
+
+
+
+
+  <div class="row">
+
+    <div class="col">
+      <% @items.each do |item| %>
+      <p><%= image_tag item.image, size: "400x300" %></p>
+      <h6>商品名</h6>
+      <p><%= item.name %></p>
+      <p>¥<%= item.price %>
+    </div>
   </div>
-
-
-
-
+  <% end %>
 <p><a href="/items" class="link-underline-primary">全ての商品を見る＞</a></p>
+     </div>
+</div>
+
+
+
+
+
+

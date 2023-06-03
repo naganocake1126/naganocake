@@ -23,11 +23,11 @@ Rails.application.routes.draw do
     get 'customers/mypage' => 'customers#show'
     get '/customers/information/edit' => 'customers#edit', as: 'edit_customers'
     patch '/customers/information/:id' => 'customers#update', as: 'update_customers'
-    
     get '/customers/quit' => 'customers#quit'
     patch '/customers/leave' => 'customers#leave'
+    delete '/cart_items/all_destroy' => 'cart_items#all_destroy', as: 'all_destroy_cart_items'
     
-    resources :cart_items
+    resources :cart_items, only:[:destroy, :create, :index, :update]
     resources :orders
   end
   
@@ -39,6 +39,7 @@ Rails.application.routes.draw do
     # get '/admin/items/:id/edit' => 'admin#edit'
     
     resources :items, only:[:new, :show, :create, :index, :edit, :update]
+    resources :cart_item, only:[:index, :create, :destroy]
     resources :customers, only:[:show, :index, :edit, :update]
     get '/asmin/orders/:id' => 'orders#show'
   end
