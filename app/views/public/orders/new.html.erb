@@ -1,1 +1,11 @@
 <h6>注文情報入力</h6>
+
+<h7>支払方法</h7>
+<%= f.radio_button :payment_method, "credit_card" %>
+<%= f.label :payment_method_credit_card, "クレジットカード" %>
+
+<%= f.radio_button :payment_method, "transfer" %>
+<%= f.label :payment_method_transfer, "銀行振込" %>
+
+<h7>お届け先</h7>
+<%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :address_display) %>
