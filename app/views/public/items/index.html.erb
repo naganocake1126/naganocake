@@ -1,22 +1,19 @@
 
 <div class="container">
 <h3>商品一覧</h3>
- <% @items.each do |item| %>
-
-
-  <div class="row">
-
-    <div class="col">
-      <p><%= link_to item_path(item.id) do %>
-         <%= image_tag item.image, size: "400x300" %>
-         <% end %>
-      </p>
+<% @items.each do |item| %>
+ <div class=”card-deck“>
+      <div class=”card” style=”width: 18rem;”>
+      <%= link_to item_path(item.id) do %>
+        <%= image_tag item.image, size: "400x300" %>
+      <% end %>
+      <div class=”card-body”>
       <h6>商品名</h6>
       <p><%= item.name %></p>
       <p>¥<%= item.price %></p>
+      </div>
     </div>
   </div>
-
 <% end %>
 <%= paginate @item %>
 </div>

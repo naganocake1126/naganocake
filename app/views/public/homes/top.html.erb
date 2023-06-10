@@ -1,20 +1,21 @@
+<div class="container">
 
-  <div class="jumbotron">
-      <div class="container">
-      <h2>ようこそ、ながのCAKEへ！</h2>
-       このサイトは、ケーキ販売のECサイトになります。<br>
-       会員でない方も商品の閲覧はできますが、<br>
-       購入には会員登録が必要になります。</h2>
+       <div class="card bg-dark text-white">
+         <%= image_tag "deco_cake.jpg", size: "1150x400" %>
+         <div class="card-img-overlay">
+         <h5 class="card-title">ようこそ、ながのCAKEへ！</h5>
+         <p class="card-text">このサイトは、ケーキ販売のECサイトになります。</p>
+         <p class="card-text">会員でない方も商品の閲覧はできますが、</p>
+         <p class="card-text">購入には会員登録が必要になります。</p>
+       </div>
+       </div>
 
-
-
-
-
+  <h3><strong>新着商品</strong></h3>
   <div class="row">
-
+    <% @items.each do |item| %>
+  <div class="col-md-3">
     <div class="col">
-      <% @items.each do |item| %>
-      <p><%= image_tag item.image, size: "400x300" %></p>
+      <p><%= image_tag item.image, size: "300x200" %></p>
       <h6>商品名</h6>
       <p><%= item.name %></p>
       <p>¥<%= item.price %>
@@ -22,7 +23,7 @@
   </div>
   <% end %>
 <p><a href="/items" class="link-underline-primary">全ての商品を見る＞</a></p>
-     </div>
+  </div>
 </div>
 
 

@@ -25,11 +25,12 @@ Rails.application.routes.draw do
     patch '/customers/information/:id' => 'customers#update', as: 'update_customers'
     get '/customers/quit' => 'customers#quit'
     patch '/customers/leave' => 'customers#leave'
-    delete '/cart_items/:id' => 'cart_items#destroy'
-    delete '/cart_items/all_destroy' => 'cart_items#all_destroy', as: 'all_destroy_cart_items'
+    delete '/cart_items/destroy_all' => 'cart_items#destroy_all', as: 'destroy_all_cart_items'
+    post 'orders/conflrmation' => "orders#conflrmation"
+    get 'orders/complete' => "orders#complete"
     resources :items, only:[:index, :show]
     resources :cart_items, only:[:destroy, :create, :index, :update]
-    resources :orders
+    resources :orders, only:[:new, :create, :index, :show]
   end
 
   namespace :admin do

@@ -1,1 +1,25 @@
 <h5>注文履歴一覧</h5>
+<table>
+  <thead>
+    <tr>
+      <th>購入日時</th>
+      <th>購入者</th>
+      <th>注文個数</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <% @order.each do |order| %>
+    <tr>
+      <td><%= order.created_at %></td>
+      
+      <td><%= order.id %></td>
+      
+      <td><%= order.amount %></td>
+    </tr>
+    <% end %>
+  </tbody>
+  
+</table>
+
+<%= paginate @order %>
