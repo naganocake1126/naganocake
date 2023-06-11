@@ -1,10 +1,10 @@
 <h5>注文履歴詳細</h5>
-
+<% @orders.each do |orders| %>
 <h8>注文情報</h8>
 <table>
   <tr>
     <td>注文日</td>
-    <td></td>
+    <td><%= orders.created_at %></td>
   </tr>
   <tr>
     <td>配送日</td>
@@ -12,7 +12,7 @@
   </tr>
   <tr>
     <td>支払方法</td>
-    <td></td>
+    <td><%= orders.payment_method %></td>
   </tr>
 </table>
 

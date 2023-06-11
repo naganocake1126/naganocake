@@ -14,12 +14,12 @@ class Public::CartItemsController < ApplicationController
   def destroy
     cart_item = CartItem.find(params[:id])
     cart_item.destroy
-    # @cart_items = CartItem.all
+     @cart_items = CartItem.all
      redirect_to '/cart_items'
   end
 
   def destroy_all
-    cart_items = Cartitem
+    cart_items = CartItem.all
     cart_items.destroy_all
      redirect_to '/cart_items'
   end

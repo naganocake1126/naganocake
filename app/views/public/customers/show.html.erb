@@ -1,9 +1,12 @@
 <div class="container">
 
-<h6>マイページ</h6>
-<h6><strong>登録情報</strong></h6>
-
-<a class="btn btn-success" href="/customers/information/edit" role="button">編集する</a>
+ <h6>マイページ</h6>
+ <table>
+  <tr>
+   <td><h6><strong>登録情報</strong></h6></td>
+   <td><a class="btn btn-success" href="/customers/information/edit" role="button">編集する</a></td>
+  </tr>
+ </table>
 
 <table class="table table-bordered">
  <thead>
@@ -34,11 +37,10 @@
   </thead>
 </table>
 
-
-</div>
-
-
-<h6><strong>注文履歴</strong></h6>
-<a class="btn btn-primary" href="/oder" role="button">一覧を見る</a>
-
+<table>
+ <tr>
+  <td><h6><strong>注文履歴</strong></h6></td>
+  <td><%= link_to "一覧を見る", orders_path,class: "btn btn-primary" %></td>
+ </tr>
+</table>
 </div>

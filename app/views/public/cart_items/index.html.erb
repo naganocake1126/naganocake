@@ -7,64 +7,59 @@
   </table>
 
 
-<table>
-  <tr>
-    <th>商品名</th>
-    <th>単価(税込)</th>
-    <th>数量</th>
-    <th>小計</th>
-    <th></th>
-  </tr>
 
-  <% if @cart_items.present? %>
-    <% @cart_items.each do |cart_item| %>
+  <table class="table table-bordered">
+    <thead class="table-light">
+     <tr>
+      <th>商品名</th>
+      <th>単価(税込)</th>
+      <th>数量</th>
+      <th>小計</th>
+      <th></th>
+     </tr>
+    </thead>
+
+    <% if @cart_items.present? %>
+     <% @cart_items.each do |cart_item| %>
       <tr>
-      <td>
+       <td>
         <%= image_tag(cart_item.item.image, size: "60x50") %>
         <%= cart_item.item.name %>
-      </td>
-      <td>
+       </td>
+       <td>
         <%= cart_item.item.with_tax_price %>
-      </td>
-      <td>
+       </td>
+       <td>
         <%= form_with model: cart_item, url: cart_item_path(cart_item), local: true, method: :patch do |f| %>
           <%= f.number_field :amount, min: 1, max:10, id: "quantity_cart"%>
           <%= f.submit "変更",class: "btn btn-success" %>
         <% end %>
-      </td>
-      <td>
+       </td>
+       <td>
         <%= cart_item.subtotal %>
-      </td>
-      <td></td>
+       </td>
+   
 
-    <% @total_price += cart_item.subtotal %>
+     <% @total_price += cart_item.subtotal %>
 
       <td>
        <%= link_to "削除する", cart_item_path(cart_item.id, cart_item), method: :delete,class: "btn btn-danger" %>
       </td>
+     <% end %>
     <% end %>
-  <% end %>
-　　　</tr>
-
-
+      </tr>
+   
+  </table>
+   <table>
     <tr>
       <td>
        <%= link_to "買い物を続ける", items_path,class: "btn btn-primary" %>
       </td>
-      <th>合計金額</th>
+     <th>合計金額</th>
       <td><%= @total_price %></td>
     </tr>
-
-    <tr>
-      <td>
-        <%= link_to "情報入力に進む", new_order_path,class: "btn btn-success" %>
-      </td>
-    </tr>
-
-
-
-</table>
-
-
-
+   </table>
+    
+     <%= link_to "情報入力に進む", new_order_path,class: "btn btn-success" %>
+     
 </div>
