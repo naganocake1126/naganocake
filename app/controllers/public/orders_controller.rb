@@ -51,7 +51,14 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
-  # @order = current_customer.orders.find(params[:id])
+   @orders = current_customer.orders
+   @cart_items = current_customer.cart_items
+   @cart_items.each do |cart_item|
+     @subtotal += cart_item.subtotal
+   end
+   @sipping_cost = 800
+  # @total_all = @sipping_cost + @subtotal
+   @total = @subtotal
   end
 
   def update

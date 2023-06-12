@@ -1,0 +1,27 @@
+<h5>注文履歴一覧</h5>
+<table>
+  <thead>
+    <tr>
+      <th>購入日時</th>
+      <th>購入者</th>
+      <th>注文個数</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orders.each do |order| %>
+    <tr>
+      <%total =0%>
+      <td><%= link_to order.created_at, order_path %></td>
+      <td><%= order.customer.first_name %></td>
+      <% order.order_details.each do |order_details| %>
+      <% total += order_details.amount %>
+     <% end %>
+     <td><%= total %></td>
+    </tr>
+    <% end %>
+  </tbody>
+
+</table>
+
+<%= paginate @order %>

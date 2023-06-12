@@ -34,16 +34,14 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    get '/admin' => 'homes#top'
-    # get '/admin/items' => 'items#new'
-    # post '/admin/items' => 'admin#create'
-    # get '/admin/items/:id' => 'admin#show'
-    # get '/admin/items/:id/edit' => 'admin#edit'
+    
+    get '/' => 'homes#top'
+    
 
     resources :items, only:[:new, :show, :create, :index, :edit, :update]
     resources :cart_item, only:[:index, :create, :destroy]
     resources :customers, only:[:show, :index, :edit, :update]
-    get '/asmin/orders/:id' => 'orders#show'
+    get '/orders/:id' => 'orders#show'
   end
 
 
