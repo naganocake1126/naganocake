@@ -1,6 +1,6 @@
+<div class="container">
 <h5>注文履歴詳細</h5>
-
-<table>
+<table class="table table-borderless">
   <thead>
     <tr>
       <td>購入者</td>
@@ -20,9 +20,8 @@
   </thead>
 </table>
 
-
-<table>
-  <thead>
+<table class="table">
+  <thead class="table-info">
     <tr>
       <th>商品名</td>
       <th>単価(税込)</th>
@@ -41,24 +40,24 @@
       <td><%= order_details.amount %></td>
 
       <td><%= @total+=order_details.amount*order_details.with_tax_price %></td>
-
-
     </tr>
     <% end %>
   </tbody>
 </table>
 
-
-<tr>
- <td>商品合計</td>
- <td><%= @total %></td>
-</tr>
-<tr>
- <td>送料</td>
- <td><%= @sipping_cost %></td>
-</tr>
-<tr>
- <td>請求金額合計</td>
- <td><%= @total+@sipping_cost %></td>
-</tr>
-
+<table class="table table-borderless">
+  <thead>
+  <tr>
+   <td>商品合計</td>
+   <td><%= @total %></td>
+  </tr>
+  <tr>
+   <td>送料</td>
+   <td><%= @sipping_cost %></td>
+  </tr>
+  <tr>
+   <td>請求金額合計</td>
+   <td><%= @total+@sipping_cost %></td>
+  <tr>
+  </thead>
+ </table>

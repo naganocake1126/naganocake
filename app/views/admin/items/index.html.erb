@@ -1,18 +1,16 @@
-<div class="mb-8 text-center">
-  <span class="text-3xl font-bold">
-    商品一覧
-  </span>
-</div>
+<div class="container">
 
-<table>
-  <thead>
+    <td>商品一覧</td>
+
+ <table class="table">
+  <thead class="table-info">
+　
     <tr>
       <th>商品ID</th>
       <th>商品名</th>
       <th>税抜価格</th>
     </tr>
   </thead>
-  
   <tbody>
     <% @item.each do |item| %>
     <tr>
@@ -24,12 +22,11 @@
     </tr>
     <% end %>
   </tbody>
-  
 </table>
 
 <%= paginate @item %>
 
-
+</div>
 
 
 

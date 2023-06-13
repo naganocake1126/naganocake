@@ -1,6 +1,7 @@
+<div class="container">
 <h5>注文履歴一覧</h5>
-<table>
-  <thead>
+<table class="table">
+  <thead class="table-info">
     <tr>
       <th>購入日時</th>
       <th>購入者</th>
@@ -21,7 +22,8 @@
     </tr>
     <% end %>
   </tbody>
-
 </table>
 
 <%= paginate @order %>
+
+</div>

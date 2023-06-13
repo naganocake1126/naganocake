@@ -1,16 +1,25 @@
-<h5>商品詳細</h5>
-
-
-<p><%= image_tag @item.image, size: "300x300" %></p>
-
-<h6>商品名</h6>
-<p><%= @item.name %></p>
-
-<h6>商品説明</h6>
-<p><%= @item.introduction %></p>
-
-<h6>税込価格</h6>
-<h6>(税抜価格)</h6>
-<p><%= @item.price %></p>
-
- <%= link_to "編集する", edit_admin_item_path, :class => "btn btn-success ms-3" %>
+<div class="container">
+  <h5>商品詳細</h5>
+  <div class ="row">
+    <div class="col-md-6"><%= image_tag @item.image, size: "300x200" %></div>
+     <div class="col-md-6">
+    <table>
+     <tr>
+      <td>商品名</td>
+      <td><%= @item.name %></td>
+     </tr>
+    <tr>
+      <td>商品説明</th>
+      <td><%= @item.introduction %></td>
+    </tr>
+    <tr>
+      <td>税込価格<br>(税抜価格)</td>
+      <td><%= @item.price %>円</td>
+    </tr>
+    </table>
+       <%= link_to "編集する", edit_admin_item_path, :class => "btn btn-success ms-3" %>
+     </div>
+  </div>
+</div>
+ 
+ 
