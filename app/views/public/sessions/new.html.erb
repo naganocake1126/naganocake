@@ -1,6 +1,6 @@
 <div class="container">
-<p class="text-dark bg-info"> ログイン </p>
-<p class="text-dark bg-info">会員の方はこちらからログイン</p>
+<span class="text-dark bg-primary"> ログイン </span><br>
+<span class="text-dark bg-primary">会員の方はこちらからログイン</span>
 <%= form_with(model: @customer, url: session_path(resource_name)) do |f| %>
   <table>
    <div class="form-group row">
@@ -16,15 +16,17 @@
     <%= f.password_field :password, autocomplete: "current-password" %>
     </div>
    </div>
-    
+
 
   <div class="actions">
     <%= f.submit "ログイン" %>
   </div>
+  </table>
 <% end %>
 
 <h7>会員登録がお済みでない方</h7><br>
 
 <a href="/customers/sign_up" class="link-primary">こちら</a>
 から新規登録を行ってください。
+
 </div>

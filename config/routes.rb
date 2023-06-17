@@ -28,20 +28,20 @@ Rails.application.routes.draw do
     delete '/cart_items/destroy_all' => 'cart_items#destroy_all', as: 'destroy_all_cart_items'
     post 'orders/conflrmation' => "orders#conflrmation"
     get 'orders/complete' => "orders#complete"
+    get '/orders/:id' => 'orders#show'
     resources :items, only:[:index, :show]
     resources :cart_items, only:[:destroy, :create, :index, :update]
     resources :orders, only:[:new, :create, :index, :show]
   end
 
   namespace :admin do
-    
+
     get '/' => 'homes#top'
-    
 
     resources :items, only:[:new, :show, :create, :index, :edit, :update]
     resources :cart_item, only:[:index, :create, :destroy]
     resources :customers, only:[:show, :index, :edit, :update]
-    get '/orders/:id' => 'orders#show'
+    
   end
 
 

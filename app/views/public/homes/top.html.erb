@@ -1,6 +1,5 @@
 <div class="container">
-  <div class ="row">
-    <div class ="col-md-4">
+  <div class="d-flex align-items-center justify-content-center">
          <%= image_tag "deco_cake.jpg", size: "800x400" %>
          <div class="card-img-overlay">
          <h5 class="text-center">ようこそ、ながのCAKEへ！</h5>
@@ -9,14 +8,14 @@
          <p class="text-center">購入には会員登録が必要になります。</p>
          </div>
     </div>
-  </div>
+
 
   <h3><strong>新着商品</strong></h3>
   <div class="row">
     <% @items.each do |item| %>
   <div class="col-md-3">
     <div class="col">
-      <p><%= image_tag item.image, size: "300x200" %></p>
+      <p><%= image_tag item.image, size: "250x200" %></p>
       <h6>商品名</h6>
       <p><%= item.name %></p>
       <p>¥<%= item.price %>

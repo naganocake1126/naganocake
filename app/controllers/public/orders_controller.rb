@@ -9,9 +9,11 @@ class Public::OrdersController < ApplicationController
 
   def conflrmation
    @order = Order.new(order_params)
-   @order.postal_code = current_customer.postal_code
-   @order.address = current_customer.address
-   @order.name = current_customer.first_name + current_customer.last_name
+   if params[:order][:address_option] == "0"
+     @order.post_code = current_customer.post_code
+     @order.address = current_customer.address
+     @order.name = current_customer.last_name + current_customer.first_name
+   end
    @subtotal = 0
    @cart_items = current_customer.cart_items
    @cart_items.each do |cart_item|
@@ -21,6 +23,8 @@ class Public::OrdersController < ApplicationController
    @total_all = @sipping_cost + @subtotal
    @total = @subtotal
   end
+
+
   def complete
   end
 
@@ -51,13 +55,12 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
+   @order = Order.find(params[:id])
    @orders = current_customer.orders
    @cart_items = current_customer.cart_items
-   @cart_items.each do |cart_item|
-     @subtotal += cart_item.subtotal
-   end
+   @subtotal = 0
    @sipping_cost = 800
-  # @total_all = @sipping_cost + @subtotal
+   @total_all = @sipping_cost + @subtotal
    @total = @subtotal
   end
 
