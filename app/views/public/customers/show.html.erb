@@ -8,15 +8,15 @@
   </tr>
  </table>
 
-<table class="table table-bordered">
+<table class="table table-bordered boder-dark">
  <thead>
   <tr>
    <td class="table-info">氏名</td>
-   <td><%= @customer.first_name %></td>
+   <td><%= @customer.first_name+" "+@customer.last_name %></td>
   </tr>
   <tr>
    <td class="table-info">カナ</td>
-   <td><%= @customer.first_name_kana %></td>
+   <td><%= @customer.first_name_kana+" "+@customer.last_name_kana %></td>
   </tr>
   <tr>
    <td class="table-info">郵便番号</td>

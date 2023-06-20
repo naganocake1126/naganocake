@@ -32,6 +32,8 @@
     
 
             <% if customer_signed_in? %>
+            <p class="text-center">ようこそ、<%= current_customer.first_name %>さん!</p>
+            
             <li class="nav-item">
               <%= link_to "マイページ", customers_mypage_path, class: 'btn btn-default' %>
             </li>

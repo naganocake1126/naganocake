@@ -13,8 +13,8 @@
     <% @orders.each do |order| %>
     <tr>
       <%total =0%>
-      <td><%= link_to order.created_at, orders_path %></td>
-      <td><%= order.customer.first_name %></td>
+      <td><%= link_to order.created_at.strftime('%Y/%m/%d %H:%M'), admin_order_path(order.id) %></td>
+      <td><%= order.customer.first_name+" "+order.customer.last_name %></td>
       <% order.order_details.each do |order_details| %>
       <% total += order_details.amount %>
      <% end %>

@@ -21,13 +21,13 @@
       <th scope="row">お届け先</th>
         <td>
   <div class="radio">
-    <%= radio_button_tag(:selected_address, :radio1) %>
+    <%= f.radio_button :address_option,0 %>
     <%= label_tag(:selected_address, "ご自身の住所") %>
     <p><%= @customer.postal_code %><%= @customer.address %></p>
     <p><%= @customer.first_name %><%= @customer.last_name %></p>
   </div>
 
-<%= radio_button_tag(:selected_address, :radio3) %>
+<%= f.radio_button :address_option,1 %>
 <%= label_tag(:selected_address, "新しいお届け先") %>
   <div class="field">
     <label class="postal-code-label">郵便番号(ハイフンなし)</label>

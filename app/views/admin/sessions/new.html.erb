@@ -1,6 +1,6 @@
 <div class="container">
-<h5>管理者ログイン</h5>
-<div class="mb-3 row">
+<span class="text-dark bg-primary">管理者ログイン</span>
+ <div class="mb-3 row">
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
    <table>
     <tr>
@@ -17,7 +17,7 @@
   </div>
 
    </table>
-   
+
 
 
   <div class="actions">
@@ -26,7 +26,8 @@
    </tr>
   </div>
 <% end %>
-</div>
+
 
 <%= render "admin/shared/links" %>
 
+</div>

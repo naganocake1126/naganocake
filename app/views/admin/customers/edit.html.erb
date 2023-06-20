@@ -1,5 +1,5 @@
 <div class="container">
-<h5>会員情報編集</h5>
+<span class="text-dark bg-info"><strong><%= @customer.first_name %></strong>さんの<strong>会員情報編集</strong></span>
 <%= form_with model: @customer, url:admin_customer_path(@customer.id), method: :patch do |f| %>
    <table>
     <tr>
@@ -38,7 +38,7 @@
    </tr>
 
    <tr>
-    <td><%= f.label :email %></td>
+    <td><%= f.label :email, "メールアドレス" %></td>
     <td><%=f.text_field :email %></td>
    </tr>
   </table>

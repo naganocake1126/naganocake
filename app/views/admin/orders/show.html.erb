@@ -3,25 +3,27 @@
 <table class="table table-borderless">
   <thead>
     <tr>
-      <td>購入者</td>
+      <td><strong>購入者</strong></td>
       <td><%= @order.customer.first_name %></td>
     <tr>
-      <td>注文日</td>
-      <td><%= @order.created_at %></td>
+      <td><strong>注文日</strong></td>
+      <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
     </tr>
     <tr>
-      <td>配送先</td>
+      <td><strong>配送先</strong></td>
       <td><%= @order.address %></td>
     </tr>
     <tr>
-      <td>支払方法</td>
+      <td><strong>支払方法</strong></td>
       <td><%= @order.payment_method %></td>
     </tr>
   </thead>
 </table>
-
+<div class="row">
+  <div class="col">
 <table class="table">
   <thead class="table-info">
+    
     <tr>
       <th>商品名</td>
       <th>単価(税込)</th>
@@ -31,33 +33,38 @@
   </thead>
   <tbody>
     <% @total=0 %>
-    <% @order_details.each do |order_details| %>
+    <% @order.order_details.each do |order_detail| %>
     <tr>
-      <td><%= order_details.item.name %></td>
+      <td><%= order_detail.item.name %></td>
 
-      <td><%= order_details.with_tax_price %></td>
+      <td><%= order_detail.with_tax_price %></td>
 
-      <td><%= order_details.amount %></td>
+      <td><%= order_detail.amount %></td>
 
-      <td><%= @total+=order_details.amount*order_details.with_tax_price %></td>
+      <td><%= @total+=order_detail.amount*order_detail.with_tax_price %></td>
     </tr>
     <% end %>
   </tbody>
 </table>
+  </div>
 
+<div class="col align-self-end">
 <table class="table table-borderless">
   <thead>
   <tr>
-   <td>商品合計</td>
+   <td><strong>商品合計</strong></td>
    <td><%= @total %></td>
   </tr>
   <tr>
-   <td>送料</td>
+   <td><strong>送料</strong></td>
    <td><%= @sipping_cost %></td>
   </tr>
   <tr>
-   <td>請求金額合計</td>
+   <td><strong>請求金額合計</strong></td>
    <td><%= @total+@sipping_cost %></td>
   <tr>
   </thead>
  </table>
+ </div>
+</div>
+</div>
