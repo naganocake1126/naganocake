@@ -1,13 +1,13 @@
+
 <div class="container">
-  
-         <%= image_tag "deco_cake.jpg", size: "800x400" %>
-         
-           
-         <title>ようこそ、ながのCAKEへ！</title>
-         <p>このサイトは、ケーキ販売のECサイトになります。</p>
-         <p>会員でない方も商品の閲覧はできますが、</p>
-         <p>購入には会員登録が必要になります。</p>
-       
+  <div class="main">
+  <%= stylesheet_link_tag "application" %>
+      <p>ようこそ、ながのCAKEへ!<br>
+      このサイトは、ケーキ販売のECサイトになります。<br>
+      会員でない方も商品の閲覧はできますが、<br>
+      購入には会員登録が必要になります。</p>
+  </div>
+
 
 
 
@@ -17,15 +17,14 @@
   <div class="col-md-3">
     <div class="col">
       <p><%= image_tag item.image, size: "250x200" %></p>
-      <h6>商品名</h6>
-      <p><%= item.name %></p>
-      <p>¥<%= item.price %>
+      <p><strong><%= item.name %></strong></p>
+      <p><strong>¥<%= item.price %></strong>
     </div>
   </div>
-  <% end %>
-<p><a href="/items" class="link-underline-primary">全ての商品を見る＞</a></p>
+    <% end %>
+    <p><a href="/items" class="link-underline-primary">全ての商品を見る＞</a></p>
   </div>
-  
+
 </div>
 
 

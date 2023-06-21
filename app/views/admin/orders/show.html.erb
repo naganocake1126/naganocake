@@ -4,7 +4,7 @@
   <thead>
     <tr>
       <td><strong>購入者</strong></td>
-      <td><%= @order.customer.first_name %></td>
+      <td><%= @order.customer.first_name+" "+@order.customer.last_name %></td>
     <tr>
       <td><strong>注文日</strong></td>
       <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
@@ -15,7 +15,7 @@
     </tr>
     <tr>
       <td><strong>支払方法</strong></td>
-      <td><%= @order.payment_method %></td>
+      <td><%= @order.payment_method_i18n %></td>
     </tr>
   </thead>
 </table>
@@ -53,15 +53,15 @@
   <thead>
   <tr>
    <td><strong>商品合計</strong></td>
-   <td><%= @total %></td>
+   <td><%= @total %>円</td>
   </tr>
   <tr>
    <td><strong>送料</strong></td>
-   <td><%= @sipping_cost %></td>
+   <td><%= @sipping_cost %>円</td>
   </tr>
   <tr>
    <td><strong>請求金額合計</strong></td>
-   <td><%= @total+@sipping_cost %></td>
+   <td><%= @total+@sipping_cost %>円</td>
   <tr>
   </thead>
  </table>

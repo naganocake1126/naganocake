@@ -1,7 +1,7 @@
 <div class="container">
-<span class="text-dark bg-primary">管理者ログイン</span>
- <div class="mb-3 row">
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+ <span class="text-dark bg-primary">管理者ログイン</span>
+  <div class="mb-3 row">
+   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
    <table>
     <tr>
      <td><%= f.label :メールアドレス %><br /></td>
@@ -25,9 +25,9 @@
     <td><input class="btn btn-outline-primary my-1" type="submit" value="ログイン"></td>
    </tr>
   </div>
-<% end %>
+   <% end %>
 
 
-<%= render "admin/shared/links" %>
+  <%= render "/admin/shared/links" %>
 
 </div>

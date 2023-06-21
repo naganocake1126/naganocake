@@ -60,8 +60,6 @@ class Public::OrdersController < ApplicationController
    @order = Order.find(params[:id])
    @subtotal = 0
    @sipping_cost = 800
-   @total_all = @sipping_cost + @subtotal
-   @total = @subtotal
   end
 
   def update

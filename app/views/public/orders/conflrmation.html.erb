@@ -44,8 +44,8 @@
       </div>
     </div>
 </div>
-<%="支払方法"+ @order.payment_method_i18n%><br>
-<%="お届け先"+ @order.postal_code+" "+@order.address+" "+@order.name%>
+<td><%="支払方法"+ @order.payment_method_i18n%><br></td>
+<td><%="お届け先"+ @order.postal_code+" "+@order.address+" "+@order.name%></td>
 <%= form_with model: @order, url: orders_path, method: :post, local: true do |f| %>
 <%= f.hidden_field :customer_id, :value => current_customer.id %>
 <%= f.hidden_field :postal_code %>
@@ -54,6 +54,8 @@
 <%= f.hidden_field :shipping_cost, :value => 800 %>
 <%= f.hidden_field :total_payment, :value => @total_all %>
 <%= f.hidden_field :payment_method %>
+<div class="d-grid gap-2 col-6 mx-auto">
 <%= f.submit "注文を確定する", class:"btn btn-success col-md-3" %>
+</div>
 <% end %>
 </div>

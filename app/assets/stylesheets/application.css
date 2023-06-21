@@ -14,3 +14,23 @@
  *= require_self
  */
  
+ 
+
+ 
+ 
+.main {
+  background-image: url(deco_cake.jpg);
+  height: 300px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+}
+.main p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 20px;
+  color:#fff;
+  margin:0; 
+}

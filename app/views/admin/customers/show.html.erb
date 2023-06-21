@@ -1,8 +1,8 @@
-
+<div class="container">
 <strong><%= @customer.first_name %></strong>さんの<strong>会員詳細</strong>
 <table class="table table-borderless">
 <tr>
-  <td>会員ID</td><%= @customer.first_name %>
+  <td>会員ID</td>
   <td><%= @customer.id %></td>
 </tr>
 <tr>
@@ -34,3 +34,5 @@
  <td><%= link_to "編集する", edit_admin_customer_path, :class => "btn btn-success ms-3" %></td>
  
  <td><%= link_to "注文履歴一覧を見る", admin_path, :class => "btn btn-primary ms-3" %></td>
+
+</div>
