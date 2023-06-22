@@ -29,6 +29,14 @@
   <td>メールアドレス</td>
   <td><%= @customer.email %></td>
 </tr>
+<tr>
+  <td>会員ステータス</td>
+　<td><% if @customer.is_deleted ==true %>
+        <p class="text-success"><strong>有効</strong></p>
+        <% else %>
+        <p class="text-muted">退会済み</p>
+        <% end %></td>
+<tr></tr>
 </table>
 
  <td><%= link_to "編集する", edit_admin_customer_path, :class => "btn btn-success ms-3" %></td>

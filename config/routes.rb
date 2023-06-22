@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   scope module: :public do
     # get 'items' => 'items#index'
     # get 'items/:id' => 'items#show'
-    get '/' => 'homes#top'
+    get '/' => 'homes#top', as: 'top'
     get '/about' => 'homes#about'
     get '/customers/sign_up' => 'registrations#new'
     post '/customers' => 'registrations#create'
